@@ -1,0 +1,8 @@
+namespace Authenticator
+{
+    [default_interface]
+    runtimeclass Window : Microsoft.UI.Xaml.Window
+    {
+        Window();
+    }
+}
