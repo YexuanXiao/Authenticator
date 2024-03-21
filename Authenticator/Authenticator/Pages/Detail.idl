@@ -1,0 +1,8 @@
+namespace Authenticator
+{
+    [default_interface]
+    runtimeclass Detail : Microsoft.UI.Xaml.Controls.Page
+    {
+        Detail();
+    }
+}
