@@ -166,6 +166,7 @@
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
     </ClInclude>
+    <ClInclude Include="Win32Helper.h" />
     <ClInclude Include="Window.xaml.h">
       <DependentUpon>Window.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -192,6 +193,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="Win32Helper.cpp" />
     <ClCompile Include="Window.xaml.cpp">
       <DependentUpon>Window.xaml</DependentUpon>
       <SubType>Code</SubType>
