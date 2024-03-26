@@ -4,10 +4,15 @@
 #include <shlobj.h>
 #include <shobjidl_core.h>
 
+#define SECURITY_WIN32
+#include <Security.h>
+#include <secext.h>
+
 namespace Win32Helper
 {
     void exit(exit_code code) noexcept
     {
+        static_assert(std::is_same_v<UINT, std::underlying_type_t<exit_code>>);
         ::ExitProcess(std::to_underlying(code));
     }
 
@@ -66,5 +71,16 @@ namespace Win32Helper
 #pragma comment(lib, "Shell32.lib")
         SHELLEXECUTEINFOW info{ .cbSize = sizeof(info), .lpFile = L"explorer.exe", .lpParameters = path.c_str(), .nShow = SW_SHOWNORMAL };
         ::ShellExecuteExW(&info);
+    }
+
+    winrt::hstring GetUserName() noexcept
+    {
+        ::ULONG size;
+        ::GetUserNameExW(::NameUserPrincipal, nullptr, &size);
+        std::wstring buffer{};
+        buffer.resize(size);
+        ::GetUserNameExW(::NameUserPrincipal, buffer.data(), &size);
+
+        return { buffer.data(), static_cast<winrt::hstring::size_type>(size) };
     }
 }

@@ -1,9 +1,6 @@
 #pragma once
-#include <windows.h>
+#define COM_NO_WINDOWS_H
 #include <unknwn.h>
-#include <restrictederrorinfo.h>
-#include <hstring.h>
-
 // Undefine GetCurrentTime macro to prevent
 // conflict with Storyboard::GetCurrentTime
 #undef GetCurrentTime
@@ -25,6 +22,9 @@
 #include <wil/cppwinrt_helpers.h>
 
 #include <winrt/Microsoft.Windows.AppLifecycle.h>
+
+#include <winrt/Windows.Storage.h>
+#include <winrt/Windows.Security.Credentials.UI.h>
 
 inline winrt::hstring operator""_hs(wchar_t const* begin, std::size_t const size) {
 	return winrt::hstring{ begin, static_cast<winrt::hstring::size_type>(size) };
