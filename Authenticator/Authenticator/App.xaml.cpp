@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "App.xaml.h"
 #include "Window.xaml.h"
-#include "Win32Helper.h"
+#include "Helpers/Win32Helper.h"
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;
@@ -10,12 +10,8 @@ namespace winrt::Authenticator::implementation
 {
     App::App()
     {
-        if (!Microsoft::Windows::AppLifecycle::AppInstance::FindOrRegisterForKey(L"Authenticator").IsCurrent())
-            Win32Helper::ActivateSingletonWindow(L"YexuanXiao.Authenticator");
-
 #if defined _DEBUG && !defined DISABLE_XAML_GENERATED_BREAK_ON_UNHANDLED_EXCEPTION
-        UnhandledException([](IInspectable const&, UnhandledExceptionEventArgs const& e)
-        {
+        UnhandledException([](IInspectable const&, UnhandledExceptionEventArgs const& e) {
             if (IsDebuggerPresent())
             {
                 auto errorMessage = e.Message();
@@ -23,6 +19,9 @@ namespace winrt::Authenticator::implementation
             }
         });
 #endif
+
+        if (!Microsoft::Windows::AppLifecycle::AppInstance::FindOrRegisterForKey(L"YexuanXiao.Authenticator").IsCurrent())
+            Win32Helper::ActivateSingletonWindow(L"YexuanXiao.Authenticator");
     }
 
     void App::OnLaunched([[maybe_unused]] LaunchActivatedEventArgs const&)
