@@ -1,8 +1,8 @@
 namespace Authenticator
 {
-    [default_interface]
-    runtimeclass Window : Microsoft.UI.Xaml.Window
+    [default_interface] runtimeclass Window: Microsoft.UI.Xaml.Window
     {
         Window();
+        Microsoft.UI.Xaml.Controls.Grid TitleBar { get; };
     }
 }

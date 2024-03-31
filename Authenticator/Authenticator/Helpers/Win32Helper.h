@@ -9,7 +9,7 @@ namespace Win32Helper {
         normal,
         instance_is_exist,
     };
-    void exit(exit_code) noexcept;
+    void Exit(exit_code) noexcept;
     /// <summary>
     /// make app only has one instance
     /// call at entry point

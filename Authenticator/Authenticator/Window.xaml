@@ -7,4 +7,50 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <Grid MinWidth="{StaticResource BreakpointTiny}" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid
+        Name="TitleBar"
+        Grid.Column="1"
+        Height="48"
+        VerticalAlignment="Top"
+        Canvas.ZIndex="-1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="48" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Image
+                Width="24"
+                Height="24"
+                Margin="0,2,12,0"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Source="ms-appx:///Assets/Icon.png" />
+                <TextBlock
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                Style="{StaticResource CaptionTextBlockStyle}"
+                Text="Authenticator" />
+            </StackPanel>
+        </Grid>
+        <NavigationView
+        Name="MainNavigation"
+        Grid.Column="1"
+        AlwaysShowHeader="False"
+        BackRequested="Navigation_BackRequested"
+        Canvas.ZIndex="0"
+        IsBackEnabled="{x:Bind RootFrame.CanGoBack, Mode=OneWay}"
+        ItemInvoked="Navigation_ItemInvoked"
+        OpenPaneLength="300">
+            <Frame Name="RootFrame" />
+        </NavigationView>
+    </Grid>
 </Window>

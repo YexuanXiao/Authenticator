@@ -13,4 +13,16 @@ namespace winrt::Authenticator::implementation
     {
         WindowT::InitializeComponent();
     }
+
+    void Window::Navigation_BackRequested(Microsoft::UI::Xaml::Controls::NavigationView const&, Microsoft::UI::Xaml::Controls::NavigationViewBackRequestedEventArgs const&)
+    {
+        RootFrame().GoBack();
+    }
+
+    void Window::Navigation_ItemInvoked(Microsoft::UI::Xaml::Controls::NavigationView const&, Microsoft::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs const& args)
+    {
+        if (args.IsSettingsInvoked())
+            ;
+        // RootFrame().Navigate(winrt::xaml_typename<Player::Settings>());
+    }
 }

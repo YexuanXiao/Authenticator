@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Authenticator (Package)", "Authenticator\Authenticator (Package)\Authenticator (Package).wapproj", "{FB0BDD76-8E50-488F-9CA1-FAC6BBB6126A}"
+Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "Package", "Authenticator\Package\Package.wapproj", "{FB0BDD76-8E50-488F-9CA1-FAC6BBB6126A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Authenticator", "Authenticator\Authenticator\Authenticator.vcxproj", "{3509ECB4-D81E-4A2F-9797-D7BE308D281B}"
 EndProject

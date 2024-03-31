@@ -49,6 +49,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icon.ico" />
+    <Content Include="Assets\Icon.png" />
+    <Content Include="Assets\Icon.svg" />
     <Content Include="Images\SplashScreen.scale-200.png" />
     <Content Include="Images\LockScreenLogo.scale-200.png" />
     <Content Include="Images\Square150x150Logo.scale-200.png" />
@@ -69,6 +72,9 @@
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="[10.0.22621.755]">
       <IncludeAssets>build</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.targets" />
 </Project>

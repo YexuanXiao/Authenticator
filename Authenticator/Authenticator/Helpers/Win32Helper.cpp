@@ -10,7 +10,7 @@
 
 namespace Win32Helper
 {
-    void exit(exit_code code) noexcept
+    void Exit(exit_code code) noexcept
     {
         static_assert(std::is_same_v<UINT, std::underlying_type_t<exit_code>>);
         ::ExitProcess(std::to_underlying(code));
@@ -33,7 +33,7 @@ namespace Win32Helper
                 ::ShowWindow(previous, SW_RESTORE);
                 // activate, set foreground and get forcus
                 if (::SetForegroundWindow(previous))
-                    exit(exit_code::instance_is_exist);
+                    Exit(exit_code::instance_is_exist);
             }
         }
     }
