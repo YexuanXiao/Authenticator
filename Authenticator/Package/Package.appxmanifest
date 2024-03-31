@@ -9,7 +9,7 @@
 
   <Identity
     Name="40dc6c5e-e1ac-4876-80d7-c6ff92555f3f"
-    Publisher="CN=bizwen"
+    Publisher="CN=YexuanXiao"
     Version="1.0.0.0" />
 
   <mp:PhoneIdentity PhoneProductId="40dc6c5e-e1ac-4876-80d7-c6ff92555f3f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
@@ -34,7 +34,7 @@
       Executable="$targetnametoken$.exe"
       EntryPoint="$targetentrypoint$">
       <uap:VisualElements
-        DisplayName="Package"
+        DisplayName="Authenticator"
         Description="Authenticator (Package)"
         BackgroundColor="transparent"
         Square150x150Logo="Images\Square150x150Logo.png"
