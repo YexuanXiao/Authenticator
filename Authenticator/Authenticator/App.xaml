@@ -55,9 +55,7 @@
             <SolidColorBrush x:Key="SubtleButtonForegroundPointerOver" Color="{ThemeResource TextFillColorPrimary}" />
             <SolidColorBrush x:Key="SubtleButtonForegroundPressed" Color="{ThemeResource TextFillColorSecondary}" />
             <SolidColorBrush x:Key="SubtleButtonForegroundDisabled" Color="{ThemeResource TextFillColorDisabled}" />
-            <!--  IconFont
-            <FontFamily x:Key="IconFontFamily">ms-appx:///Assets/MediaPlayerIcons.ttf#Segoe Fluent Icons</FontFamily>
-            -->
+            <FontFamily x:Key="IconFontFamily">ms-appx:///Assets/Authenticator.ttf#Fluent System Icons</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

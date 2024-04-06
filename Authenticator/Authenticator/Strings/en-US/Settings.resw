@@ -148,7 +148,16 @@
     <value>Default Page</value>
   </data>
   <data name="DefaultPageDescription.Text" xml:space="preserve">
-    <value>Choose the page to enter when change the library.</value>
+    <value>Choose the page to enter after open this application.</value>
+  </data>
+  <data name="Hello.Text" xml:space="preserve">
+    <value>Enable WindowsHello</value>
+  </data>
+  <data name="HelloDescription.Text" xml:space="preserve">
+    <value>Turning WindowsHello on is used to quickly verify that it's the owner accessing the app, if it's off then a PIN is used for authentication.</value>
+  </data>
+  <data name="HelloUnsupported.Text" xml:space="preserve">
+    <value>The current environment does not support Windows Hello, please check the computer settings.</value>
   </data>
   <data name="Hot.Content" xml:space="preserve">
     <value>Hot</value>

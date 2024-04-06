@@ -8,7 +8,8 @@ namespace Win32Helper {
     {
         normal,
         instance_is_exist,
-        remove_data
+        remove_data,
+        auth_failed
     };
     void Exit(exit_code) noexcept;
     /// <summary>

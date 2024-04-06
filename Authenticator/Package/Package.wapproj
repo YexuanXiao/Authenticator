@@ -49,6 +49,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <PRIResource Include="Assets\Icons.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </PRIResource>
     <Content Include="Assets\Icon.ico" />
     <Content Include="Assets\Icon.png" />
     <Content Include="Assets\Icon.svg" />

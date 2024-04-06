@@ -124,7 +124,7 @@
     <value>应用数据</value>
   </data>
   <data name="ApplicationDataDescription.Text" xml:space="preserve">
-    <value>清除应用数据，该操作不可逆并且会立即结束程序。如果你发现了错误，请去往</value>
+    <value>清除应用数据，该操作不可逆并且会立即结束程序。如果你发现了错误，请到</value>
   </data>
   <data name="Behavior.Text" xml:space="preserve">
     <value>行为</value>
@@ -148,7 +148,16 @@
     <value>默认页面</value>
   </data>
   <data name="DefaultPageDescription.Text" xml:space="preserve">
-    <value>选择更改库后默认进入的页面。</value>
+    <value>选择打开应用后默认进入的页面。</value>
+  </data>
+  <data name="Hello.Text" xml:space="preserve">
+    <value>开启 WindowsHello</value>
+  </data>
+  <data name="HelloDescription.Text" xml:space="preserve">
+    <value>开启 WindowsHello 用于快速验证是否是机主访问应用，如果关闭则使用 PIN 进行验证。</value>
+  </data>
+  <data name="HelloUnsupported.Text" xml:space="preserve">
+    <value>当前的环境不支持 WindowsHello，请检查计算机设置。</value>
   </data>
   <data name="Hot.Content" xml:space="preserve">
     <value>热情</value>

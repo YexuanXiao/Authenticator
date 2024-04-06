@@ -81,21 +81,20 @@ namespace SettingsHelper
         co_return flag == decltype(flag)::Available;
     }
 
-    winrt::Windows::Foundation::IAsyncOperation<bool> EnableWindowsHello() noexcept
+    void WindowsHello(bool enable)
     {
         auto settings{ GetApplicationSettings() };
 
-        // test once
-        if (co_await CheckWindowsHelloAvailable() && co_await RequestWindowsHello())
-            co_return true;
-
-        co_return false;
+        if (enable)
+            settings.Insert(Hello_Key.data(), winrt::box_value(true));
+        else
+            settings.Insert(Hello_Key.data(), winrt::box_value(false));
     }
 
     bool CheckWindowsHelloEnabled() noexcept
     {
         auto settings{ GetApplicationSettings() };
-        auto value{ winrt::unbox_value_or<int32_t>(settings.Lookup(Hello_Key.data()), 0) };
+        auto value{ winrt::unbox_value_or<bool>(settings.Lookup(Hello_Key.data()), false) };
 
         return value;
     }

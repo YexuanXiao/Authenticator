@@ -13,6 +13,55 @@ using namespace Microsoft::UI::Xaml;
 
 namespace winrt::Authenticator::implementation
 {
+    Windows::Foundation::IAsyncAction Settings::Page_Loading(Microsoft::UI::Xaml::FrameworkElement const&, Windows::Foundation::IInspectable const&)
+    {
+        if (co_await SettingsHelper::CheckWindowsHelloAvailable())
+        {
+            Hello().IsEnabled(true);
+
+            if (SettingsHelper::CheckWindowsHelloEnabled())
+                Hello().IsOn(true);
+        }
+        else
+        {
+            auto brush{ Microsoft::UI::Xaml::Application::Current().Resources().Lookup(winrt::box_value(L"SystemFillColorCriticalBackgroundBrush")) };
+            HelloExpander().Background(brush.try_as<Microsoft::UI::Xaml::Media::Brush>());
+            HelloDesc().Text(resource_.GetString(L"HelloUnsupported/Text"));
+        }
+
+        // Cannot binding handler in XAML because the event will be triggered by manually setting isOn,
+        // causing the WindowsHello to be validated immediately
+
+        Hello().Toggled({ this, &Settings::Hello_Toggle });
+    }
+
+    Windows::Foundation::IAsyncAction Settings::Hello_Toggle(Windows::Foundation::IInspectable const&, Microsoft::UI::Xaml::RoutedEventArgs const& e)
+    {
+        if (Hello().IsOn())
+        {
+            if (co_await SettingsHelper::CheckWindowsHelloAvailable())
+            {
+                if (co_await SettingsHelper::RequestWindowsHello())
+                {
+                    SettingsHelper::WindowsHello(true);
+                    co_return;
+                }
+            }
+            else
+            {
+                auto brush{ Microsoft::UI::Xaml::Application::Current().Resources().Lookup(winrt::box_value(L"SystemFillColorCriticalBackgroundBrush")) };
+                HelloExpander().Background(brush.try_as<Microsoft::UI::Xaml::Media::Brush>());
+                HelloDesc().Text(resource_.GetString(L"HelloUnsupported/Text"));
+            }
+        }
+        else
+        {
+            SettingsHelper::WindowsHello(false);
+        }
+
+        Hello().IsOn(false);
+    }
+
     void Settings::InitializeComponent()
     {
         SettingsT::InitializeComponent();
@@ -91,7 +140,7 @@ namespace winrt::Authenticator::implementation
         auto dialog{ Microsoft::UI::Xaml::Controls::ContentDialog{} };
         dialog.XamlRoot(XamlRoot());
         dialog.Title(winrt::box_value(resource_.GetString(L"Reset/Text") + L' ' + resource_.GetString(L"ApplicationData/Text")));
-        dialog.CloseButtonText(resource_.GetString(L"Cancel"));
+        dialog.CloseButtonText(common_.GetString(L"Cancel/Text"));
         dialog.DefaultButton(Microsoft::UI::Xaml::Controls::ContentDialogButton::Close);
         dialog.PrimaryButtonText(resource_.GetString(L"Reset/Text"));
         auto content{ Microsoft::UI::Xaml::Controls::Grid{} };
@@ -103,8 +152,6 @@ namespace winrt::Authenticator::implementation
         rows.Append(def1);
         rows.Append(def2);
         auto icon{ Microsoft::UI::Xaml::Controls::FontIcon{} };
-        auto font{ Microsoft::UI::Xaml::Application::Current().Resources().Lookup(winrt::box_value(L"IconFontFamily")).try_as<Microsoft::UI::Xaml::Media::FontFamily>() };
-        icon.FontFamily(font);
         icon.Glyph(L"\uE7BA");
         icon.FontSize(50.);
         icon.Margin(Microsoft::UI::Xaml::ThicknessHelper::FromUniformLength(30.));
@@ -127,7 +174,7 @@ namespace winrt::Authenticator::implementation
             co_return;
 
         co_await SettingsHelper::RemoveAllData();
-        
+
         Win32Helper::Exit(Win32Helper::exit_code::remove_data);
     }
 }

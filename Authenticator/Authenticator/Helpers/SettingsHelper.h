@@ -12,10 +12,10 @@ namespace SettingsHelper
     void SetFirstUse() noexcept;
     winrt::Windows::Foundation::IAsyncAction RemoveAllData() noexcept;
     winrt::Windows::Foundation::IAsyncOperation<bool> RequestWindowsHello() noexcept;
-    winrt::Windows::Foundation::IAsyncOperation<bool> CheckWindowsHelloAvailable() noexcept;
     // check whether Windows Hello has been enabled on the device and test it once
     // don't call it in the Window.Activate event, this will result in no other way
     // to stop Windows Hello from taking up the device than reboot
-    winrt::Windows::Foundation::IAsyncOperation<bool> EnableWindowsHello() noexcept;
+    winrt::Windows::Foundation::IAsyncOperation<bool> CheckWindowsHelloAvailable() noexcept;
+    void WindowsHello(bool) noexcept;
     bool CheckWindowsHelloEnabled() noexcept;
 }

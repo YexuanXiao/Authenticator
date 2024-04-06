@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <Page
     x:Class="Authenticator.Settings"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Authenticator"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:Authenticator"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Loading="Page_Loading"
     mc:Ignorable="d">
     <Page.Resources>
         <Style
@@ -60,9 +61,7 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <FontIcon
-                                Margin="0,23,16,23"
-                                Glyph="&#xF2B7;" />
+                            <FontIcon Margin="0,23,16,23" Glyph="&#xF2B7;" />
                             <TextBlock
                                 x:Uid="/Settings/Language"
                                 Grid.Column="1"
@@ -81,15 +80,13 @@
                         TextWrapping="Wrap">
                         <Run x:Uid="/Settings/LanguageDescription" />
                         <Hyperlink NavigateUri="https://github.com/YexuanXiao/Authenticator" UnderlineStyle="None">Github</Hyperlink>
-                        <Run x:Uid="Period"></Run>
+                        <Run x:Uid="Period" />
                     </TextBlock>
                 </Expander>
                 <Expander Grid.Row="2" Style="{StaticResource ItemExpander}">
                     <Expander.Header>
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon
-                                Margin="0,23,16,23"
-                                Glyph="&#xF08C;" />
+                            <FontIcon Margin="0,23,16,23" Glyph="&#xF08C;" />
                             <TextBlock x:Uid="/Settings/Theme" VerticalAlignment="Center" />
                         </StackPanel>
                     </Expander.Header>
@@ -106,9 +103,7 @@
                 <Expander Grid.Row="3" Style="{StaticResource ItemExpander}">
                     <Expander.Header>
                         <StackPanel Orientation="Horizontal">
-                            <FontIcon
-                                Margin="0,23,16,23"
-                                Glyph="&#xE790;" />
+                            <FontIcon Margin="0,23,16,23" Glyph="&#xE790;" />
                             <TextBlock x:Uid="/Settings/Color" VerticalAlignment="Center" />
                         </StackPanel>
                     </Expander.Header>
@@ -135,9 +130,7 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <FontIcon
-                                Margin="0,23,16,23"
-                                Glyph="&#xF2B7;" />
+                            <FontIcon Margin="0,23,16,23" Glyph="&#xF2B7;" />
                             <TextBlock
                                 x:Uid="/Settings/DefaultPage"
                                 Grid.Column="1"
@@ -158,6 +151,34 @@
                         VerticalAlignment="Center"
                         TextWrapping="Wrap" />
                 </Expander>
+                <Expander
+                    Name="HelloExpander"
+                    Grid.Row="6"
+                    Style="{StaticResource ItemExpander}">
+                    <Expander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <FontIcon Margin="0,23,16,23" Glyph="&#xEB68;" />
+                            <TextBlock
+                                x:Uid="/Settings/Hello"
+                                Grid.Column="1"
+                                VerticalAlignment="Center" />
+                            <ToggleSwitch
+                                Name="Hello"
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                IsEnabled="False" />
+                        </Grid>
+                    </Expander.Header>
+                    <TextBlock
+                        Name="HelloDesc"
+                        x:Uid="/Settings/HelloDescription"
+                        Margin="40,0,40,0" />
+                </Expander>
                 <TextBlock
                     x:Uid="/Settings/Application"
                     Grid.Row="8"
@@ -170,9 +191,7 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <FontIcon
-                                Margin="0,23,16,23"
-                                Glyph="&#xEBE8;" />
+                            <FontIcon Margin="0,23,16,23" Glyph="&#xEBE8;" />
                             <TextBlock
                                 x:Uid="/Settings/ApplicationData"
                                 Grid.Column="1"
@@ -191,7 +210,7 @@
                         TextWrapping="Wrap">
                         <Run x:Uid="/Settings/ApplicationDataDescription" />
                         <Hyperlink NavigateUri="https://github.com/YexuanXiao/Authenticator" UnderlineStyle="None">Github</Hyperlink>
-                        <Run x:Uid="Period"/>
+                        <Run x:Uid="Period" />
                     </TextBlock>
                 </Expander>
             </Grid>
