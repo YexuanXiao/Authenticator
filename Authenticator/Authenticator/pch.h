@@ -21,26 +21,43 @@
 #include <winrt/Microsoft.UI.Dispatching.h>
 #include <wil/cppwinrt_helpers.h>
 
+// common
+#include <winrt/Windows.ApplicationModel.Resources.h>
+#include <winrt/Microsoft.Windows.ApplicationModel.Resources.h>
+
+// App.xaml
 #include <winrt/Microsoft.Windows.AppLifecycle.h>
-
-#include <winrt/Windows.Storage.h>
-#include <winrt/Windows.Security.Credentials.UI.h>
-
 #include <winrt/Microsoft.UI.Windowing.h>
 
-inline winrt::hstring operator""_hs(wchar_t const* begin, std::size_t const size) {
-	return winrt::hstring{ begin, static_cast<winrt::hstring::size_type>(size) };
+// SettingsHelper
+#include <winrt/Windows.Security.Credentials.UI.h>
+#include <winrt/Windows.Storage.h>
+
+// NativeAuthHelper
+#include <winrt/Windows.Security.Credentials.h>
+#include <winrt/Windows.Security.Cryptography.h>
+#include <winrt/Windows.Security.Cryptography.Core.h>
+
+// Settings.xaml
+#include <winrt/Windows.Globalization.h>
+
+inline winrt::hstring operator""_hs(wchar_t const* begin, std::size_t const size)
+{
+    return winrt::hstring{ begin, static_cast<winrt::hstring::size_type>(size) };
 }
 
 #if !defined(__cpp_size_t_suffix) || __cpp_size_t_suffix <= 202006L
 // for C++ 23 std::size_t literal workaround
-inline constexpr std::size_t operator""uz(unsigned long long const value) {
-	if constexpr (sizeof(value) <= sizeof(std::size_t)) {
-		return { value };
-	}
-	else {
-		assert(value < SIZE_MAX);
-		return { value };
-	}
+inline constexpr std::size_t operator"" uz(unsigned long long const value)
+{
+    if constexpr (sizeof(value) <= sizeof(std::size_t))
+    {
+        return { value };
+    }
+    else
+    {
+        assert(value < SIZE_MAX);
+        return { value };
+    }
 }
 #endif

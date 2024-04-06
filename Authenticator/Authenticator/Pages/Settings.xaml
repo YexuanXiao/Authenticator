@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Authenticator.Settings"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Authenticator"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style
+            x:Key="SubtitleText"
+            BasedOn="{StaticResource SubtitleTextBlockStyle}"
+            TargetType="TextBlock">
+            <Setter Property="Margin" Value="0,15,0,15" />
+        </Style>
+        <Style x:Key="ItemExpander" TargetType="Expander">
+            <Setter Property="Margin" Value="0,1,0,1" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="ExpandDirection" Value="Down" />
+        </Style>
+    </Page.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock
+            x:Uid="/Settings/Title"
+            Margin="0,24,0,0"
+            Padding="{x:Bind ContentGrid.Padding, Mode=OneWay}"
+            Style="{StaticResource TitleTextBlockStyle}" />
+        <ScrollViewer
+            Grid.Row="1"
+            ScrollViewer.VerticalScrollBarVisibility="Auto"
+            ScrollViewer.VerticalScrollMode="Auto">
+            <Grid Name="ContentGrid" Margin="0,0,0,40">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Uid="/Settings/UserInterface" Style="{StaticResource SubtitleText}" />
+                <Expander Grid.Row="1" Style="{StaticResource ItemExpander}">
+                    <Expander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <FontIcon
+                                Margin="0,23,16,23"
+                                Glyph="&#xF2B7;" />
+                            <TextBlock
+                                x:Uid="/Settings/Language"
+                                Grid.Column="1"
+                                VerticalAlignment="Center" />
+                            <DropDownButton Grid.Column="2" HorizontalAlignment="Right">
+                                <TextBlock x:Uid="/Settings/ChooseLanguage" />
+                                <DropDownButton.Flyout>
+                                    <MenuFlyout x:Name="Languages" Placement="BottomEdgeAlignedLeft" />
+                                </DropDownButton.Flyout>
+                            </DropDownButton>
+                        </Grid>
+                    </Expander.Header>
+                    <TextBlock
+                        Margin="40,0,40,0"
+                        VerticalAlignment="Center"
+                        TextWrapping="Wrap">
+                        <Run x:Uid="/Settings/LanguageDescription" />
+                        <Hyperlink NavigateUri="https://github.com/YexuanXiao/Authenticator" UnderlineStyle="None">Github</Hyperlink>
+                        <Run x:Uid="Period"></Run>
+                    </TextBlock>
+                </Expander>
+                <Expander Grid.Row="2" Style="{StaticResource ItemExpander}">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon
+                                Margin="0,23,16,23"
+                                Glyph="&#xF08C;" />
+                            <TextBlock x:Uid="/Settings/Theme" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <RadioButtons
+                        Margin="40,0,40,0"
+                        Loaded="Theme_Loaded"
+                        MaxColumns="1"
+                        SelectionChanged="Theme_Changed">
+                        <RadioButton x:Uid="/Settings/Default" Tag="default" />
+                        <RadioButton x:Uid="/Settings/Light" Tag="light" />
+                        <RadioButton x:Uid="/Settings/Dark" Tag="dark" />
+                    </RadioButtons>
+                </Expander>
+                <Expander Grid.Row="3" Style="{StaticResource ItemExpander}">
+                    <Expander.Header>
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon
+                                Margin="0,23,16,23"
+                                Glyph="&#xE790;" />
+                            <TextBlock x:Uid="/Settings/Color" VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Expander.Header>
+                    <RadioButtons
+                        Margin="40,0,40,0"
+                        MaxColumns="1"
+                        SelectedIndex="1">
+                        <RadioButton
+                            x:Uid="/Settings/Hot"
+                            IsEnabled="False"
+                            Tag="hot" />
+                        <RadioButton x:Uid="/Settings/Default" Tag="default" />
+                    </RadioButtons>
+                </Expander>
+                <TextBlock
+                    x:Uid="/Settings/Behavior"
+                    Grid.Row="4"
+                    Style="{StaticResource SubtitleText}" />
+                <Expander Grid.Row="5" Style="{StaticResource ItemExpander}">
+                    <Expander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <FontIcon
+                                Margin="0,23,16,23"
+                                Glyph="&#xF2B7;" />
+                            <TextBlock
+                                x:Uid="/Settings/DefaultPage"
+                                Grid.Column="1"
+                                VerticalAlignment="Center" />
+                            <DropDownButton Grid.Column="2" HorizontalAlignment="Right">
+                                <TextBlock x:Uid="/Settings/ChoosePage" />
+                                <DropDownButton.Flyout>
+                                    <MenuFlyout x:Name="DefaultPage" Placement="BottomEdgeAlignedLeft">
+                                        <MenuFlyoutItem IsEnabled="False">Placeholder</MenuFlyoutItem>
+                                    </MenuFlyout>
+                                </DropDownButton.Flyout>
+                            </DropDownButton>
+                        </Grid>
+                    </Expander.Header>
+                    <TextBlock
+                        x:Uid="/Settings/DefaultPageDescription"
+                        Margin="40,0,40,0"
+                        VerticalAlignment="Center"
+                        TextWrapping="Wrap" />
+                </Expander>
+                <TextBlock
+                    x:Uid="/Settings/Application"
+                    Grid.Row="8"
+                    Style="{StaticResource SubtitleText}" />
+                <Expander Grid.Row="9" Style="{StaticResource ItemExpander}">
+                    <Expander.Header>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <FontIcon
+                                Margin="0,23,16,23"
+                                Glyph="&#xEBE8;" />
+                            <TextBlock
+                                x:Uid="/Settings/ApplicationData"
+                                Grid.Column="1"
+                                VerticalAlignment="Center" />
+                            <Button
+                                Grid.Column="2"
+                                HorizontalAlignment="Right"
+                                Tapped="Reset_Tapped">
+                                <TextBlock x:Uid="/Settings/Reset" />
+                            </Button>
+                        </Grid>
+                    </Expander.Header>
+                    <TextBlock
+                        Margin="40,0,40,0"
+                        VerticalAlignment="Center"
+                        TextWrapping="Wrap">
+                        <Run x:Uid="/Settings/ApplicationDataDescription" />
+                        <Hyperlink NavigateUri="https://github.com/YexuanXiao/Authenticator" UnderlineStyle="None">Github</Hyperlink>
+                        <Run x:Uid="Period"/>
+                    </TextBlock>
+                </Expander>
+            </Grid>
+        </ScrollViewer>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="{StaticResource BreakpointSmall}" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ContentGrid.Padding" Value="60,0,60,0" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="ContentGrid.Padding" Value="15,0,15,0" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+    </Grid>
+</Page>

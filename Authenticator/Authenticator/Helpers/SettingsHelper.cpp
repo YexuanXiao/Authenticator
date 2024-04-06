@@ -67,18 +67,6 @@ namespace SettingsHelper
         return winrt::Windows::Storage::ApplicationData::Current().ClearAsync();
     }
 
-    winrt::hstring GetLangTagName(winrt::hstring const& tag) noexcept
-    {
-        if (tag.starts_with(L"en"))
-            return { L"English" };
-        else if (tag.starts_with(L"zh")) [[likely]]
-            return { L"Chinese" };
-        else
-            assert(false);
-
-        std::unreachable();
-    }
-
     winrt::Windows::Foundation::IAsyncOperation<bool> RequestWindowsHello() noexcept
     {
         auto flag = co_await winrt::Windows::Security::Credentials::UI::UserConsentVerifier::RequestVerificationAsync(L"请求进行 Windows Hello 验证");

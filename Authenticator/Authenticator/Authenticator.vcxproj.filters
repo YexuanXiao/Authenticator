@@ -37,6 +37,9 @@
     <Page Include="Pages\Detail.xaml">
       <Filter>Pages</Filter>
     </Page>
+    <Page Include="Pages\Settings.xaml">
+      <Filter>Pages</Filter>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Pages">
@@ -45,5 +48,28 @@
     <Filter Include="Helpers">
       <UniqueIdentifier>{c33043fb-2456-45a3-821f-177d6eedffa5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Strings">
+      <UniqueIdentifier>{c5f79fee-b1a6-4142-92a1-dca11a6997df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\en-US">
+      <UniqueIdentifier>{9846bb4c-cfcb-4564-8c1b-a8540e183608}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strings\zh-CN">
+      <UniqueIdentifier>{29f79261-734f-4df7-ac77-47aedeaf0ebe}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Settings.resw">
+      <Filter>Strings\en-US</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Settings.resw">
+      <Filter>Strings\zh-CN</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <Filter>Strings\en-US</Filter>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Resources.resw">
+      <Filter>Strings\zh-CN</Filter>
+    </PRIResource>
   </ItemGroup>
 </Project>

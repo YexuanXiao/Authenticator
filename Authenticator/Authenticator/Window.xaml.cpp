@@ -22,7 +22,6 @@ namespace winrt::Authenticator::implementation
     void Window::Navigation_ItemInvoked(Microsoft::UI::Xaml::Controls::NavigationView const&, Microsoft::UI::Xaml::Controls::NavigationViewItemInvokedEventArgs const& args)
     {
         if (args.IsSettingsInvoked())
-            ;
-        // RootFrame().Navigate(winrt::xaml_typename<Player::Settings>());
+            RootFrame().Navigate(winrt::xaml_typename<Authenticator::Settings>());
     }
 }

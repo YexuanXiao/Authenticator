@@ -11,7 +11,6 @@ namespace SettingsHelper
     bool CheckFirstUse() noexcept;
     void SetFirstUse() noexcept;
     winrt::Windows::Foundation::IAsyncAction RemoveAllData() noexcept;
-    winrt::hstring GetLangTagName(winrt::hstring const& tag) noexcept;
     winrt::Windows::Foundation::IAsyncOperation<bool> RequestWindowsHello() noexcept;
     winrt::Windows::Foundation::IAsyncOperation<bool> CheckWindowsHelloAvailable() noexcept;
     // check whether Windows Hello has been enabled on the device and test it once
