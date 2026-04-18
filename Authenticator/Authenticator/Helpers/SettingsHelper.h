@@ -1,7 +1,6 @@
 #pragma once
-#include "pch.h"
 
-namespace SettingsHelper
+export namespace SettingsHelper
 {
     winrt::Microsoft::UI::Xaml::ElementTheme LoadTheme() noexcept;
     // for settings page use

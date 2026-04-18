@@ -4,9 +4,10 @@
 #include "Settings.g.cpp"
 #endif
 
-#include "Helpers/Win32Helper.h"
-#include "Helpers/SettingsHelper.h"
 #include <winrt/Windows.Globalization.h>
+
+import Win32Helper;
+import SettingsHelper;
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;

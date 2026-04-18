@@ -1,9 +1,11 @@
 #include "pch.h"
 #include "App.xaml.h"
 #include "Window.xaml.h"
-#include "Helpers/Win32Helper.h"
-#include "Helpers/SettingsHelper.h"
 #include <winrt/Microsoft.UI.Windowing.h>
+
+import SettingsHelper;
+
+import Win32Helper;
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;

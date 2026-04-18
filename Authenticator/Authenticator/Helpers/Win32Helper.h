@@ -1,9 +1,7 @@
 #pragma once
 
-#include <pch.h>
-
 // Win32Helper is responsible for all Win32 API interactions
-namespace Win32Helper {
+export namespace Win32Helper {
     enum class exit_code : unsigned int
     {
         normal,

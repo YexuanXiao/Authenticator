@@ -1,12 +1,21 @@
-#include "pch.h"
-#include "Win32Helper.h"
+module;
+
 #include <Microsoft.UI.Xaml.Window.h>
+
+#include <winrt/base.h>
 #include <shlobj.h>
 #include <shobjidl_core.h>
 
 #define SECURITY_WIN32
 #include <Security.h>
 #include <secext.h>
+
+#include <cassert>
+
+export module Win32Helper;
+import Microsoft.UI.Xaml;
+
+#include "Win32Helper.h"
 
 namespace Win32Helper
 {

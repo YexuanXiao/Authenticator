@@ -1,10 +1,15 @@
-#include "pch.h"
-#include "NativeAuthHelper.h"
-#include "Win32Helper.h"
+module;
 
-#include <winrt/Windows.Security.Credentials.h>
-#include <winrt/Windows.Security.Cryptography.h>
-#include <winrt/Windows.Security.Cryptography.Core.h>
+export module NativeAuthHelper;
+
+import Windows.Security.Credentials;
+import Windows.Security.Cryptography;
+import Windows.Security.Cryptography.Core;
+import Windows.Foundation.Collections;
+
+import Win32Helper;
+
+#include "NativeAuthHelper.h"
 
 namespace NativeAuthHelper
 {

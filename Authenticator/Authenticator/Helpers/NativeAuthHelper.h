@@ -1,7 +1,6 @@
 #pragma once
-#include "pch.h"
 
-namespace NativeAuthHelper
+export namespace NativeAuthHelper
 {
     /*
     * KeyCredentialManager is buggy, so these functions should not be used

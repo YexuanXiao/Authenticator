@@ -1,8 +1,12 @@
-#include "pch.h"
-#include "Win32Helper.h"
-#include <winrt/Windows.Storage.h>
+export module SettingsHelper;
+import Windows.Foundation.Collections;
+import Windows.Storage;
+import Microsoft.UI.Xaml;
+import Windows.Security.Credentials.UI;
 
-#include <winrt/Windows.Security.Credentials.UI.h>
+import Win32Helper;
+
+#include "SettingsHelper.h"
 
 namespace SettingsHelper
 {
@@ -81,7 +85,7 @@ namespace SettingsHelper
         co_return flag == decltype(flag)::Available;
     }
 
-    void WindowsHello(bool enable)
+    void WindowsHello(bool enable) noexcept
     {
         auto settings{ GetApplicationSettings() };
 
