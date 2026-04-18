@@ -1,6 +1,7 @@
 #pragma once
 #define COM_NO_WINDOWS_H
 #include <unknwn.h>
+#include <inspectable.h>
 // Undefine WinBase.h GetCurrentTime macro to prevent
 // conflict with Storyboard::GetCurrentTime
 #undef GetCurrentTime

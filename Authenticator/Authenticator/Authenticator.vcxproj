@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="18.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.1\build\native\YexuanXiao.CppWinRTPlus.props" Condition="Exists('..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.1\build\native\YexuanXiao.CppWinRTPlus.props')" />
+  <Import Project="..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.2\build\native\YexuanXiao.CppWinRTPlus.props" Condition="Exists('..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.2\build\native\YexuanXiao.CppWinRTPlus.props')" />
   <Import Project="..\..\packages\Microsoft.WindowsAppSDK.WinUI.1.8.251105000\build\native\Microsoft.WindowsAppSDK.WinUI.props" Condition="Exists('..\..\packages\Microsoft.WindowsAppSDK.WinUI.1.8.251105000\build\native\Microsoft.WindowsAppSDK.WinUI.props')" />
   <Import Project="..\..\packages\Microsoft.WindowsAppSDK.Widgets.1.8.250904007\build\native\Microsoft.WindowsAppSDK.Widgets.props" Condition="Exists('..\..\packages\Microsoft.WindowsAppSDK.Widgets.1.8.250904007\build\native\Microsoft.WindowsAppSDK.Widgets.props')" />
   <Import Project="..\..\packages\Microsoft.WindowsAppSDK.Runtime.1.8.251106002\build\native\Microsoft.WindowsAppSDK.Runtime.props" Condition="Exists('..\..\packages\Microsoft.WindowsAppSDK.Runtime.1.8.251106002\build\native\Microsoft.WindowsAppSDK.Runtime.props')" />
@@ -210,16 +210,19 @@
     <ClCompile Include="Pages\Detail.xaml.cpp">
       <DependentUpon>Pages\Detail.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Pages\Settings.xaml.cpp">
       <DependentUpon>Pages\Settings.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="Helpers\SettingsHelper.cpp">
@@ -235,6 +238,7 @@
     <ClCompile Include="Window.xaml.cpp">
       <DependentUpon>Window.xaml</DependentUpon>
       <SubType>Code</SubType>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -278,7 +282,7 @@
     <Import Project="..\..\packages\Microsoft.WindowsAppSDK.Runtime.1.8.251106002\build\native\Microsoft.WindowsAppSDK.Runtime.targets" Condition="Exists('..\..\packages\Microsoft.WindowsAppSDK.Runtime.1.8.251106002\build\native\Microsoft.WindowsAppSDK.Runtime.targets')" />
     <Import Project="..\..\packages\Microsoft.WindowsAppSDK.Widgets.1.8.250904007\build\native\Microsoft.WindowsAppSDK.Widgets.targets" Condition="Exists('..\..\packages\Microsoft.WindowsAppSDK.Widgets.1.8.250904007\build\native\Microsoft.WindowsAppSDK.Widgets.targets')" />
     <Import Project="..\..\packages\Microsoft.WindowsAppSDK.WinUI.1.8.251105000\build\native\Microsoft.WindowsAppSDK.WinUI.targets" Condition="Exists('..\..\packages\Microsoft.WindowsAppSDK.WinUI.1.8.251105000\build\native\Microsoft.WindowsAppSDK.WinUI.targets')" />
-    <Import Project="..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.1\build\native\YexuanXiao.CppWinRTPlus.targets" Condition="Exists('..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.1\build\native\YexuanXiao.CppWinRTPlus.targets')" />
+    <Import Project="..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.2\build\native\YexuanXiao.CppWinRTPlus.targets" Condition="Exists('..\..\packages\YexuanXiao.CppWinRTPlus.2.1.260418.2\build\native\YexuanXiao.CppWinRTPlus.targets')" />
   </ImportGroup>
   <Target Name="RemoveWebView2Runtime" BeforeTargets="ResolveAssemblyReferences">
     <ItemGroup>

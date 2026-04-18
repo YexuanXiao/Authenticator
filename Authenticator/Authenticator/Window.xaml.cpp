@@ -1,11 +1,18 @@
-#include "pch.h"
+#define WINRT_CONSUME_MODULE
+// XAMLC
+import Windows.Foundation;
+import Windows.UI.Xaml.Interop;
+import Microsoft.UI.Xaml.Interop;
+import Microsoft.UI.Xaml.Data;
+import Microsoft.UI.Xaml.Controls;
+import Microsoft.UI.Xaml.Markup;
+
 #include "Window.xaml.h"
 #if __has_include("Window.g.cpp")
 #include "Window.g.cpp"
 #endif
 
 import SettingsHelper;
-
 import Win32Helper;
 
 using namespace winrt;

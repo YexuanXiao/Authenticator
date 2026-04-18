@@ -1,10 +1,40 @@
-#include "pch.h"
+#define WINRT_CONSUME_MODULE
+
+#include <windows.h>
+#include <debugapi.h>
+#include <cassert>
+
+//XAMLC
+import Windows.Foundation;
+import Microsoft.UI.Xaml.Markup;
+import Microsoft.UI.Xaml.Interop;
+import Windows.UI.Xaml.Interop;
+import Microsoft.UI.Xaml;
+
+#ifdef WINRT_CONSUME_MODULE
+#define COM_NO_WINDOWS_H
+#define __unknwn_h__
+#define __RPC_H__
+#define __RPCNDR_H__
+#define _INC_WINAPIFAMILY
+#define _INC_WINDOWS
+#define _INC_SDKDDKVER
+
+#define _FUNCTIONAL_
+#define _VECTOR_
+#define _MAP_
+#define _MUTEX_
+#endif
+
+import Authenticator;
+import Microsoft.UI.Xaml;
+import Windows.Foundation;
+import Microsoft.UI.Windowing;
+import Microsoft.Windows.AppLifecycle;
+
 #include "App.xaml.h"
-#include "Window.xaml.h"
-#include <winrt/Microsoft.UI.Windowing.h>
 
 import SettingsHelper;
-
 import Win32Helper;
 
 using namespace winrt;

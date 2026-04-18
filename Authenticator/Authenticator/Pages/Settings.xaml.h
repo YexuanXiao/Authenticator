@@ -1,9 +1,6 @@
 #pragma once
 
 #include "Settings.g.h"
-#include <winrt/Microsoft.Windows.ApplicationModel.Resources.h>
-// BUG: https://github.com/microsoft/WindowsAppSDK/issues/4312
-#include <winrt/Windows.ApplicationModel.Resources.h>
 
 namespace winrt::Authenticator::implementation
 {

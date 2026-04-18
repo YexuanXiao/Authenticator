@@ -1,13 +1,27 @@
-#include "pch.h"
+#define WINRT_CONSUME_MODULE
+
+// XAMLC
+import Windows.Foundation;
+import Windows.UI.Xaml.Interop;
+import Microsoft.UI.Xaml.Interop;
+import Microsoft.UI.Xaml.Data;
+import Microsoft.UI.Xaml.Controls;
+import Microsoft.UI.Xaml.Markup;
+
+import Microsoft.Windows.ApplicationModel.Resources;
+// BUG: https://github.com/microsoft/WindowsAppSDK/issues/4312
+import Windows.ApplicationModel.Resources;
+import Microsoft.UI.Xaml;
+import Windows.Foundation;
+import Microsoft.UI.Xaml.Controls;
+import Windows.Globalization;
+import Win32Helper;
+import SettingsHelper;
+
 #include "Settings.xaml.h"
 #if __has_include("Settings.g.cpp")
 #include "Settings.g.cpp"
 #endif
-
-#include <winrt/Windows.Globalization.h>
-
-import Win32Helper;
-import SettingsHelper;
 
 using namespace winrt;
 using namespace Microsoft::UI::Xaml;

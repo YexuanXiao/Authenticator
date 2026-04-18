@@ -1,4 +1,8 @@
-#include "pch.h"
+#define WINRT_CONSUME_MODULE
+
+// XAMLC
+import Microsoft.UI.Xaml.Markup;
+
 #include "Detail.xaml.h"
 #if __has_include("Detail.g.cpp")
 #include "Detail.g.cpp"

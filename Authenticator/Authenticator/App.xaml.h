@@ -1,5 +1,10 @@
 #pragma once
 
+// Give XamlTypeInfo.g.cpp a chance to use the pch.h
+#ifndef WINRT_CONSUME_MODULE
+#include "pch.h"
+#endif
+
 #include "App.xaml.g.h"
 
 namespace winrt::Authenticator::implementation
